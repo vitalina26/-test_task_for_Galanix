@@ -1,1 +1,1 @@
-# -test_task_for_Galanix
+# test_task_for_Galanix

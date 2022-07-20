@@ -40,32 +40,29 @@ window.onload = function () {
     }
 
     $("._img").click(function(){
-         // Событие клика на маленькое изображение
         
         var img = $(this);
-        // Получаем изображение, на которое кликнули
         
         var src = img.attr('src');
-        // Достаем из этого изображения путь до картинки
         
-        $("body").append("<div class='popup'>"+ //Добавляем в тело документа разметку всплывающего окна
+        $("body").append("<div class='popup'>"+ 
         
-        "<div class='popup_bg'></div>"+ // Блок, который будет служить фоном затемненным
+        "<div class='popup_bg'></div>"+ 
         
-        "<img src='"+ src +"' class='popup_img' />" + // Само увеличенное фото
+        "<img src='"+ src +"' class='popup_img' />" + 
         "<img class='close' src='close.png' height='50' width='50'>"+
         "</div>");
         
-        $(".popup").fadeIn(800); // Медленно выводим изображение
+        $(".popup").fadeIn(800); 
         
         
-        $(".popup_bg").click(function () {    // Событие клика на затемненный фон      
+        $(".popup_bg").click(function () {    
         
-        $(".popup").fadeOut(800);    // Медленно убираем всплывающее окно
+        $(".popup").fadeOut(800);    
         
-        setTimeout(function() {    // Выставляем таймер
+        setTimeout(function() {    
         
-        $(".popup").remove(); // Удаляем разметку всплывающего окна
+        $(".popup").remove(); 
         
         }, 800);
         
@@ -73,11 +70,11 @@ window.onload = function () {
 
         $('.close').click(function() {
 		  
-            $(".popup").fadeOut(800);    // Медленно убираем всплывающее окно
+            $(".popup").fadeOut(800);    
         
-            setTimeout(function() {    // Выставляем таймер
+            setTimeout(function() {    
             
-            $(".popup").remove(); // Удаляем разметку всплывающего окна
+            $(".popup").remove(); 
             
             }, 800);
 		});

@@ -1,8 +1,8 @@
-var enteredCountryElement = document.forms.form.country;
-enteredCountryElement.onchange = function() {
-    var enteredCountry = enteredCountryElement.value;
+const enteredCountryElement = document.getElementsByName('country');
+$('.form_submit').click(function () {
+    let enteredCountry = $('.form_text').val();
     updateDisplay(enteredCountry);
-};
+ });
 function updateDisplay(enteredCountry) {
     var url = "http://universities.hipolabs.com/search?country=" + enteredCountry;
    
@@ -22,18 +22,18 @@ function updateDisplay(enteredCountry) {
 function makeTable(obj) {
     const divForTable = document.querySelector('.makingTable');
     const myTable = document.createElement('table');
-    var contentOfTable = " <table> <thead><tr> <td> № </td> <td>Alpha two code</td> <td>Country</td> <td>state-province</td> <td>domains</td> <td>name</td> <td>web pages</td> </tr> </thead> <tbody>";
-    for (univ in obj)
+    var contentOfTable = "<thead><tr> <td> /// </td> <td>Alpha two code</td> <td>Country</td> <td>state-province</td> <td>domains</td> <td>name</td> <td>web pages</td> </tr> </thead> <tbody>";
+    for (univ of obj)
     {
         let _domains = "<td>";
-        for (dom of obj.univ.domains)
+        for (dom of univ.domains)
         {
-            _domains += dom + '<br>';
+            _domains += toString(dom) + '<br>';
         }
         _domains += '</td>';
 
         let _web_pages = "<td>";
-        for (page of obj.univ.web_pages)
+        for (page of univ.web_pages)
         {
             _web_pages += "<a href='"+ page +"'></a><br>";
         }
@@ -48,20 +48,17 @@ function makeTable(obj) {
     }
     contentOfTable += " </tbody>"
     myTable.innerHTML = contentOfTable;
-    divForTable.prepend(myTable);
+    divForTable.preend(myTable);
 }
-var resetElement = document.forms.form.form_submit;
 
-resetElement.click(function() {
+$('.form_reset').click(function() {
 		  
-    $("table").fadeOut(30);    
+    $(".makingTable").fadeOut(30);    
 
     setTimeout(function() {    
     
-    $("table").remove(); 
+    $(".makingTable").remove(); 
     
     }, 30);
-    enteredCountryElement.value = "";
-
 });
 

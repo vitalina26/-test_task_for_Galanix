@@ -10,7 +10,7 @@ function updateDisplay(enteredCountry) {
        if(response.ok) {
     response.json().then(function(json) {
        universitiesOfCountry= json;
-      makeTable(universitiesOfCountry);
+      makeTable(JSON.parse(universitiesOfCountry));
     });
   } else {
     console.log('request failed with response ' + response.status + ': ' + response.statusText);
